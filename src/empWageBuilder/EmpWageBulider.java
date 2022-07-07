@@ -2,25 +2,38 @@ package empWageBuilder;
 
 public class EmpWageBulider {
 
+	public static final int PART_TIME=1;
+	public static final int FULL_TIME=2;
+	public static final int PER_HOUR=20;
+
 	public static void main(String[] args) {
-		int PART_TIME=1;
-		int FULL_TIME=2;
-		int PER_HOUR=20;
 
 		int empHr=0;
 		int empWage=0; 
 
-		double empCheck=Math.floor(Math.random()*10)%3;
+		int empCheck=(int)Math.floor(Math.random()*10)%3;
 
-		if(empCheck==PART_TIME)
+		switch(empCheck)
+		{
+		case PART_TIME:
 			empHr=4;
-		else if(empCheck==FULL_TIME)
+			System.out.println("part time");
+			break;
+
+		case FULL_TIME:
 			empHr=8;
-		else
+			System.out.println("full time");
+			break;
+
+		default:
 			empHr=0;
+			System.out.println("absent");
 
-		empWage=empHr*PER_HOUR;
-		System.out.println("Employee wage-" +empWage);
+
+
+
+			empWage=empHr*PER_HOUR;
+			System.out.println("Employee wage-" +empWage);
+		}
 	}
-
 }

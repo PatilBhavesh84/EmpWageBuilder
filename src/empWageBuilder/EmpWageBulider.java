@@ -2,38 +2,37 @@ package empWageBuilder;
 
 public class EmpWageBulider {
 
-	public static final int PART_TIME=1;
-	public static final int FULL_TIME=2;
-	public static final int PER_HOUR=20;
-	public static final int WORKING_DAYS=20;
 	public static void main(String[] args) {
+		int empRatePerHour = 20;
+		int salary;
+		int empHrs;
+		int totalSalary = 0;
+		int totalWorkingdays = 0,totalEmpHrs = 0; 
 
-		int totalWage=0;
-		int empHr=0; 
-		for(int day=1;day<=WORKING_DAYS;day++)
+
+		while(totalEmpHrs <= 100 && totalWorkingdays <=20)
 		{
-
-			int empCheck=(int)Math.floor(Math.random()*10)%3;
-
-			switch(empCheck)
+			double empCheck = Math.floor(Math.random()*10)%3;
+			switch((int)empCheck)
 			{
-			case PART_TIME:
-				empHr=4;
-
+			case 1:
+				empHrs = 8;
 				break;
-
-			case FULL_TIME:
-				empHr=8;
-
+			case 2: 
+				empHrs = 4;
+			
 				break;
-
 			default:
+				empHrs =0;
 			}
-
-			int wage=empHr*PER_HOUR;
-			System.out.println("On day-"+day+"-wage is-"+wage);
-			totalWage += wage;
-			System.out.println("Total wage for a month is-" +totalWage);
+			salary = empRatePerHour*empHrs;
+			totalSalary = totalSalary + salary;
+			totalEmpHrs = totalEmpHrs + empHrs;
+			totalWorkingdays++;
 		}
+		System.out.println("Monthly wage is " + totalSalary);
 	}
+
+
 }
+
